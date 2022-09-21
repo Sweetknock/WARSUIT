@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*This program is to control the behavior of the nodes. Includes collision detection and 
+ * nodes will turn red when in contact with an object with obstacle layer.
+*/
+
 public class Grid : MonoBehaviour
 {
 	Node[,] grid;
@@ -32,7 +36,15 @@ public class Grid : MonoBehaviour
 				grid[x, y].passable = passable;
 			}
 	}
-	
+
+	public Vector2Int GetGridPosition(Vector3 worldPosition)
+	{ 
+		worldPosition -= transform.position;
+		Vector2Int postionOnGrid = new Vector2Int((int)(worldPosition.x / cellSize), (int)(worldPosition.z / cellSize));
+		return postionOnGrid;
+	}
+
+
 	private void OnDrawGizmos()
 	{
 		if (grid == null) { return; }
