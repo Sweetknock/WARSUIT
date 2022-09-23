@@ -12,12 +12,24 @@ public class GridControl : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            Debug.Log("GridControl Update");
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            if(Physics.Raycast(ray, out hit, float.MaxValue, terrainLayermask))
+
+            Debug.Log(ray);
+
+            if (Physics.Raycast(ray, out hit, float.MaxValue, terrainLayermask))
             {
                 Vector2Int gridPosition = targetGrid.GetGridPosition(hit.point);
-                Debug.Log(gridPosition);
+                GridObject gridObject = targetGrid.GetPlacedObject(gridPosition);
+                if (gridObject == null)
+                {
+                    Debug.Log("x=" + gridPosition.x + "y=" + gridPosition.y + " is empty");
+                }
+                else 
+                {
+                    Debug.Log("x=" + gridPosition.x + "y=" + gridPosition.y + gridObject.GetComponent<Character>().Name);
+                }
             }
         }
     }

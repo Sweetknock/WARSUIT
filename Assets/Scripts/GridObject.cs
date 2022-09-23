@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class GridObject : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] Grid targetGrid;
+
+    private void Awake()
     {
-        
+        Init();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Init()
     {
-        
+        Debug.Log("Start Grid Object_Init");
+        //Debug.Log(targetGrid);
+        Vector2Int positionOnGrid = targetGrid.GetGridPosition(transform.position);
+        Debug.Log("Start Grid Object_Init2");
+        Debug.Log(targetGrid);
+        Debug.Log(positionOnGrid);
+        Debug.Log(this);
+        targetGrid.PlaceObject(positionOnGrid, this);
+        Debug.Log("Start Grid Object_Init3");
     }
 }
