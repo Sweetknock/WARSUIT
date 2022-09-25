@@ -6,4 +6,5 @@ public class Node
 {
     public bool passable;
     public GridObject gridObject1;
+    public float elevation;
 }

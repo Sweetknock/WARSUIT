@@ -6,7 +6,7 @@ public class GridObject : MonoBehaviour
 {
     [SerializeField] Grid targetGrid;
 
-    private void Awake()
+    private void Start()
     {
         Init();
     }
@@ -14,13 +14,7 @@ public class GridObject : MonoBehaviour
     private void Init()
     {
         Debug.Log("Start Grid Object_Init");
-        //Debug.Log(targetGrid);
         Vector2Int positionOnGrid = targetGrid.GetGridPosition(transform.position);
-        Debug.Log("Start Grid Object_Init2");
-        Debug.Log(targetGrid);
-        Debug.Log(positionOnGrid);
-        Debug.Log(this);
         targetGrid.PlaceObject(positionOnGrid, this);
-        Debug.Log("Start Grid Object_Init3");
     }
 }
