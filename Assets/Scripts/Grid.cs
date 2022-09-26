@@ -80,7 +80,7 @@ public class Grid : MonoBehaviour
 			{
 				for (int y = 0; y < width; y++)
 				{
-					Vector3 pos = GetWorldPosition(x, y);
+					Vector3 pos = GetWorldPosition(x, y, true);
 					Gizmos.color = grid[x, y].passable ? Color.white : Color.red;
 					Gizmos.DrawCube(pos, Vector3.one / 2);
 				}
