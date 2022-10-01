@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,8 +10,27 @@ using UnityEngine;
 public class Grid : MonoBehaviour
 {
 	static Node[,] grid;
-	[SerializeField] static int width = 25;
-	[SerializeField] static int length = 25;
+
+	[SerializeField] static int _width = 25;
+	[SerializeField] static int _length = 25;
+	public int width
+	{
+		get
+		{
+			return _width;
+		}
+	}
+
+	public int length
+	{
+		get
+		{
+			return _length;
+		}
+	}
+
+
+
 	[SerializeField] static float cellSize = 1.0f;
 	[SerializeField] LayerMask obstacleLayer;
 	[SerializeField] LayerMask terrainLayer;
@@ -47,7 +67,6 @@ public class Grid : MonoBehaviour
 				if (Physics.Raycast(ray, out hit, float.MaxValue, terrainLayer))
 				{
 					grid[x, y].elevation = hit.point.y;
-					Debug.Log(grid[x, y].elevation);
 				}
 			}
 	}
@@ -72,7 +91,7 @@ public class Grid : MonoBehaviour
 				for (int y = 0; y < width; y++)
 				{
 					Vector3 pos = GetWorldPosition(x, y);
-					Gizmos.DrawCube(pos, Vector3.one / 2);
+					Gizmos.DrawCube(pos, Vector3.one / 4);
 				}
 			}
 		else { 
@@ -88,13 +107,12 @@ public class Grid : MonoBehaviour
 			}
 	}
 
-	private Vector3 GetWorldPosition(int x, int y, bool elevation = false)
+	public Vector3 GetWorldPosition(int x, int y, bool elevation = false)
 	{
 		return new Vector3(x * cellSize, elevation ==true ? grid[x,y].elevation : 0f, y * cellSize);
 	}
 
-
-	public Vector2Int GetGridPosition(Vector3 worldPosition)
+    public Vector2Int GetGridPosition(Vector3 worldPosition)
 	{
 		Debug.Log("Start Grid GetGridPostion");
 		Vector2Int postionOnGrid = new Vector2Int((int)(worldPosition.x / cellSize), (int)(worldPosition.z / cellSize));
@@ -103,7 +121,7 @@ public class Grid : MonoBehaviour
 
 	public void PlaceObject(Vector2Int positionOnGrid, GridObject gridObject)
 	{
-		Debug.Log("Start Grid PlaceObject");
+		Debug.Log(length);
 		if (CheckBoundery(positionOnGrid) == true)
 			{ 
 			grid[positionOnGrid.x, positionOnGrid.y].gridObject1 = gridObject;
@@ -114,14 +132,32 @@ public class Grid : MonoBehaviour
 			Debug.Log(gridObject.GetComponent<Character>().Name + " is out of bounds!");
 	}
 
-	public bool CheckBoundery(Vector2Int positionOnGrid)
+
+    public bool CheckBoundery(Vector2Int positionOnGrid)
 	{
-        if (positionOnGrid.x<0 || positionOnGrid.x>=length)
+		Debug.Log(positionOnGrid);
+		if (positionOnGrid.x<0 || positionOnGrid.x>=length)
 			return false;
 		if (positionOnGrid.y < 0 || positionOnGrid.y >= width)
 			return false;
 
 		return true;
+	}
+
+	public bool CheckBoundery(int posX, int posY)
+	{
+		if (posX < 0 || posX >= length)
+			return false;
+		if (posY < 0 || posY >= width)
+			return false;
+
+		return true;
+	}
+
+	public bool CheckWalkable(int pos_x, int pos_y)
+	{
+		return grid[pos_x, pos_y].passable;
+
 	}
 
 	internal GridObject GetPlacedObject(Vector2Int gridPosition)
