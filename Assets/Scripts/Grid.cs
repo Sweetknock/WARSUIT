@@ -7,12 +7,17 @@ using UnityEngine;
  * nodes will turn red when in contact with an object with obstacle layer.
 */
 
+
+//Main grid object
 public class Grid : MonoBehaviour
 {
 	static Node[,] grid;
 
-	[SerializeField] static int _width = 25;
-	[SerializeField] static int _length = 25;
+	[SerializeField] LayerMask obstacleLayer;
+	[SerializeField] LayerMask terrainLayer;
+	[SerializeField] static float cellSize = 1.0f;
+	[SerializeField] static int _width = 50;
+	[SerializeField] static int _length = 50;
 	public int width
 	{
 		get
@@ -31,10 +36,8 @@ public class Grid : MonoBehaviour
 
 
 
-	[SerializeField] static float cellSize = 1.0f;
-	[SerializeField] LayerMask obstacleLayer;
-	[SerializeField] LayerMask terrainLayer;
-
+	
+	//Initialize the Grid based on width length and cell size.
 	private void Awake()
 	{
 		Debug.Log("Start Grid Awake");
@@ -55,7 +58,8 @@ public class Grid : MonoBehaviour
 		CalculateElevation();
 		CheckPassableTerrain();
 	}
-
+	
+	//Uses ray casting from the Main camera to calculate the elevation of the grid bases on the giving terrain. 
 	private void CalculateElevation()
 	{
 		Debug.Log("Calculate Elevation");
@@ -91,7 +95,7 @@ public class Grid : MonoBehaviour
 				for (int y = 0; y < width; y++)
 				{
 					Vector3 pos = GetWorldPosition(x, y);
-					Gizmos.DrawCube(pos, Vector3.one / 4);
+					Gizmos.DrawCube(pos, Vector3.one / 6);
 				}
 			}
 		else { 
@@ -101,7 +105,7 @@ public class Grid : MonoBehaviour
 				{
 					Vector3 pos = GetWorldPosition(x, y, true);
 					Gizmos.color = grid[x, y].passable ? Color.white : Color.red;
-					Gizmos.DrawCube(pos, Vector3.one / 2);
+					Gizmos.DrawCube(pos, Vector3.one / 6);
 				}
 			}
 			}
