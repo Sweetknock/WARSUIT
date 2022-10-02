@@ -1,3 +1,5 @@
+//Script to create a time day and night cycle by rotating a light source 
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
