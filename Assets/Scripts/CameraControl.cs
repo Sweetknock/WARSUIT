@@ -30,7 +30,7 @@ public class CameraControl : MonoBehaviour
     private void MoveCamera()
     {
         Vector3 position = transform.position;
-        position += (input * Time.deltaTime);
+        position += input * Time.deltaTime;
         position.x = Mathf.Clamp(position.x, bottomLeftBorder.position.x, topRightBorder.position.x);
         position.z = Mathf.Clamp(position.z, bottomLeftBorder.position.z, topRightBorder.position.z);
 

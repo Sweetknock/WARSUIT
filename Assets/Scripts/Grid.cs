@@ -15,9 +15,9 @@ public class Grid : MonoBehaviour
 
 	[SerializeField] LayerMask obstacleLayer;
 	[SerializeField] LayerMask terrainLayer;
-	[SerializeField] static float cellSize = 1.0f;
-	[SerializeField] static int _width = 50;
-	[SerializeField] static int _length = 50;
+	[SerializeField] static float cellSize = 1.667f;
+	[SerializeField] static int _width = 30;
+	[SerializeField] static int _length = 30;
 	public int width
 	{
 		get
@@ -119,6 +119,8 @@ public class Grid : MonoBehaviour
     public Vector2Int GetGridPosition(Vector3 worldPosition)
 	{
 		Debug.Log("Start Grid GetGridPostion");
+		worldPosition.x -= cellSize / 2;
+		worldPosition.z -= cellSize / 2;
 		Vector2Int postionOnGrid = new Vector2Int((int)(worldPosition.x / cellSize), (int)(worldPosition.z / cellSize));
 		return postionOnGrid;
 	}
@@ -173,5 +175,16 @@ public class Grid : MonoBehaviour
 			return gridObject;
 		}
 		return null;
+	}
+
+	public List<Vector3> ConvertPathNodesToWorldPosition(List<PathNode> path)
+	{
+		List<Vector3> worldPositions = new List<Vector3>();
+		for (int i = 0; i < path.Count; i++)
+		{
+			worldPositions.Add(GetWorldPosition(path[i].pos_x, path[i].pos_y, true));
+		}
+
+		return worldPositions;
 	}
 }

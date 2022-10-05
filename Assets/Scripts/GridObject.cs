@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class GridObject : MonoBehaviour
 {
-    [SerializeField] Grid targetGrid;
+    public Grid targetGrid;
+    public Vector2Int positionOnGrid;
 
     private void Start()
     {
@@ -14,7 +15,9 @@ public class GridObject : MonoBehaviour
     private void Init()
     {
         Debug.Log("Start Grid Object_Init");
-        Vector2Int positionOnGrid = targetGrid.GetGridPosition(transform.position);
+        positionOnGrid = targetGrid.GetGridPosition(transform.position);
         targetGrid.PlaceObject(positionOnGrid, this);
-    }
+        Vector3 pos = targetGrid.GetWorldPosition(positionOnGrid.x, positionOnGrid.y, true);
+        transform.position = pos;
+    }   
 }
