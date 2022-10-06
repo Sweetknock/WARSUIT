@@ -21,7 +21,7 @@ public class CharacterAnimator : MonoBehaviour
 
     public void StopMoving()
     { 
-        move =false;
+        move = false;
         animator.SetBool("Move", move);
     }
 

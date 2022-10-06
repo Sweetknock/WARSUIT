@@ -31,13 +31,12 @@ public class PathFinding : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("Path finding init");
+        Debug.Log("Path finding init!");
         Init();
     }
 
     private void Init()
     {
-        Debug.Log("Path finding init!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         if (gridMap is null) { gridMap = GetComponent<Grid>(); }
         gridMap = GetComponent<Grid>();
         pathNodes = new PathNode[gridMap.width, gridMap.length];
@@ -131,8 +130,7 @@ public class PathFinding : MonoBehaviour
 
         if (distX > distY) { return 14 * distY + 10 * (distX - distY); }
 
-        Debug.Log("Return CalculatedDistance:");
-        Debug.Log(14 * distY + 10 * (distX - distY));
+        Debug.Log($"Return Calculated Distance: {14 * distY + 10 * (distX - distY)}");
         return 14 * distY + 10 * (distX - distY);
     }
 
