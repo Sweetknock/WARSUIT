@@ -131,11 +131,11 @@ public class Grid : MonoBehaviour
 		if (CheckBoundery(positionOnGrid) == true)
 			{ 
 			grid[positionOnGrid.x, positionOnGrid.y].gridObject1 = gridObject;
-			Debug.Log(gridObject.GetComponent<Character>().Name + " placed successfully!");
+			Debug.Log(gridObject.GetComponent<Character>().characterName + " placed successfully!");
 			Debug.Log(positionOnGrid);
 		}
 		else
-			Debug.Log(gridObject.GetComponent<Character>().Name + " is out of bounds!");
+			Debug.Log(gridObject.GetComponent<Character>().characterName + " is out of bounds!");
 	}
 
 
