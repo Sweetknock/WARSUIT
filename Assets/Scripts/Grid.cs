@@ -15,9 +15,9 @@ public class Grid : MonoBehaviour
 
 	[SerializeField] LayerMask obstacleLayer;
 	[SerializeField] LayerMask terrainLayer;
-	[SerializeField] static float cellSize = 1.667f;
-	[SerializeField] static int _width = 30;
-	[SerializeField] static int _length = 30;
+	[SerializeField] static float cellSize = 2;
+	[SerializeField] static int _width = 25;
+	[SerializeField] static int _length = 25;
 	public int width
 	{
 		get
@@ -119,8 +119,8 @@ public class Grid : MonoBehaviour
     public Vector2Int GetGridPosition(Vector3 worldPosition)
 	{
 		Debug.Log("Start Grid GetGridPostion");
-		worldPosition.x -= cellSize / 2;
-		worldPosition.z -= cellSize / 2;
+		//worldPosition.x -= cellSize / 2;
+		//worldPosition.z -= cellSize / 2;
 		Vector2Int postionOnGrid = new Vector2Int((int)(worldPosition.x / cellSize), (int)(worldPosition.z / cellSize));
 		return postionOnGrid;
 	}
@@ -170,7 +170,6 @@ public class Grid : MonoBehaviour
 	{
 		if (CheckBoundery(gridPosition) == true)
 		{
-			Debug.Log("Start Grid GetPlacedObject");
 			GridObject gridObject = grid[gridPosition.x, gridPosition.y].gridObject1;
 			return gridObject;
 		}

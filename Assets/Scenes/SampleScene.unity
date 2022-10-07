@@ -329,6 +329,7 @@ GameObject:
   - component: {fileID: 302055193}
   - component: {fileID: 302055195}
   - component: {fileID: 302055196}
+  - component: {fileID: 302055197}
   m_Layer: 6
   m_Name: Grid
   m_TagString: Untagged
@@ -394,6 +395,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e952bac746596ba448e0191dedb5af25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &302055197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302055192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2db5eaa01471bb24c81cb5e906f42291, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movePoint: {fileID: 4625792524409150755, guid: bd006c5dba0de2f46a86b97baaad98fb, type: 3}
+  testTargetPosition:
+  - {x: 3, y: 5}
+  - {x: 5, y: 3}
+  - {x: 3, y: 3}
+  - {x: 5, y: 5}
 --- !u!1 &309181972
 GameObject:
   m_ObjectHideFlags: 0
@@ -793,7 +812,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 543274498}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.435702, y: 26.17593, z: 1.0632858}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -911,7 +930,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 685970615}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.48, y: -16.175896, z: 14.86}
+  m_LocalPosition: {x: 7.96, y: 10, z: 20.84}
   m_LocalScale: {x: 3.128982, y: 7.834498, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1402,7 +1421,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1838200887}
   m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
-  m_LocalPosition: {x: 0, y: -14.90592, z: 40}
+  m_LocalPosition: {x: 11.62, y: 11.25, z: 40}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1564,7 +1583,7 @@ GameObject:
   - component: {fileID: 1898293865}
   - component: {fileID: 1898293867}
   m_Layer: 0
-  m_Name: Character
+  m_Name: Erza
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1577,15 +1596,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1898293863}
-  m_LocalRotation: {x: -0, y: -0.901057, z: -0, w: -0.43370077}
-  m_LocalPosition: {x: 0.2, y: -16.175892, z: 14.7}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.9, y: 10, z: 9.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1852475294}
   m_Father: {fileID: 543274499}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: -231.405, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1898293865
 MonoBehaviour:
   m_ObjectHideFlags: 0
