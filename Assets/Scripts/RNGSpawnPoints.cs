@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnPoint : MonoBehaviour {
+public class RNGSpawnPoints : MonoBehaviour {
 
     public GameObject[] spawnLocations;
     public GameObject Character;
-
-    private Vector3 respawnLocation;
+    public Grid grid;
+    public Vector3 respawnLocation;
 
     void Awake()
     {
@@ -15,8 +15,11 @@ public class SpawnPoint : MonoBehaviour {
     }
 
     void Start () {
-        Character = (GameObject)Resources.Load("Player" , typeof(GameObject));
-        
+        Character = (GameObject)Resources.Load("Erza" , typeof(GameObject));
+
+        Debug.Log("RNGSPAWNPOINTS");
+        Debug.Log(Character);
+        Debug.Log(respawnLocation);
         respawnLocation = Character.transform.position;
         
         SpawnCharacter();
@@ -35,6 +38,6 @@ public class SpawnPoint : MonoBehaviour {
 
 
 
-
+  
 }
    

@@ -27,16 +27,11 @@ public class MoveCharacter : MonoBehaviour
             {
                 Vector2Int gridPosition = targetGrid.GetGridPosition(hit.point);
 
-                Debug.Log(pathfinding);
-                Debug.Log(targetCharacter);
-                Debug.Log(targetCharacter.positionOnGrid.x);
-
                 path = pathfinding.FindPath(targetCharacter.positionOnGrid.x, targetCharacter.positionOnGrid.y, gridPosition.x, gridPosition.y);
 
                 if (path is null) { return; }
                 if (path.Count == 0) { return; }
 
-                Debug.Log(targetCharacter);
                 targetCharacter.GetComponent<Movement>().Move(path);
             }
         }

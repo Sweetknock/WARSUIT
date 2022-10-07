@@ -15,6 +15,7 @@ public class D6RNG : MonoBehaviour
 
     private void PickRandomNumber(int maxInt) {
         int randomNum = Random.Range(1, maxInt+1);
+        Debug.Log(randomNum.ToString());
         largeText.text = randomNum.ToString();
     }
 

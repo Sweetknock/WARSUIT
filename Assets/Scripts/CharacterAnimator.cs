@@ -7,10 +7,12 @@ public class CharacterAnimator : MonoBehaviour
     Animator animator;
     [SerializeField] bool move;
     [SerializeField] bool attack;
+    D6RNG damage;
 
     private void Awake()
     {
         animator  = GetComponent<Animator>();
+        damage = GetComponent<D6RNG>();
     }
 
     public void StartMoving()
@@ -28,13 +30,18 @@ public class CharacterAnimator : MonoBehaviour
     public void Attack()
     { 
         attack = true;
+        
         animator.SetBool("Attack", attack);
     }
 
     private void Update()
     {
         animator.SetBool("Move", move);
-        animator.SetBool("Attack", attack);
+
+        
+            animator.SetBool("Attack", attack);
+        if (attack == true)
+            damage.BtnAction();
     }
 
     private void LateUpdate()
