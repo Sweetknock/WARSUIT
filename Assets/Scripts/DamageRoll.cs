@@ -4,11 +4,11 @@ using UnityEngine;
 using TMPro;
 public class DamageRoll : MonoBehaviour
 {
-    public Stat damage;
-    public int damage;
+    public Stat damageStat;
+    public int damageInt;
     public TextMeshProUGUI damageUI;
-
-    public int Damage { get => damageValue; set => damage = ; }
+    /*
+    public int Damage { get => ; set => ;}
 
     void Update()
     {
@@ -22,5 +22,5 @@ public class DamageRoll : MonoBehaviour
         {
             damageValue++;
         }
-    }
+    } */
 }

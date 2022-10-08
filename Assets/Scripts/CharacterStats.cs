@@ -6,6 +6,8 @@ public class CharacterStats : MonoBehaviour {
     public int currentHealth { get; private set; }
     public Stat damage;
     public Stat health;
+
+    public D6RNG damageRoll;
     
     void Awake ()
     {
@@ -16,7 +18,7 @@ public class CharacterStats : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.T)) 
         {
-            TakeDamage(1);
+            TakeDamage(damageRoll.BtnAction());
         }
     }
     public void TakeDamage (int damage)

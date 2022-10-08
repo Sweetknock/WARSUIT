@@ -8,15 +8,16 @@ public class D6RNG : MonoBehaviour
     
     public TextMesh largeText;
 
-    public void BtnAction()
+    public int BtnAction()
     {
-        PickRandomNumber(6);
+        return PickRandomNumber(6);
     }
 
-    private void PickRandomNumber(int maxInt) {
+    private int PickRandomNumber(int maxInt) {
         int randomNum = Random.Range(1, maxInt+1);
         Debug.Log(randomNum.ToString());
         largeText.text = randomNum.ToString();
+        return randomNum;
     }
 
 }
