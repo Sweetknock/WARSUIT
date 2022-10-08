@@ -1,4 +1,4 @@
-using TMPro;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class CharacterStats : MonoBehaviour {
@@ -8,14 +8,14 @@ public class CharacterStats : MonoBehaviour {
     public Stat damage;
     public Stat health;
 
-    public TextMeshProUGUI healthBarStat;
+    public Slider slider;
 
     public D6RNG damageRoll;
     
     void Awake ()
     {
         currentHealth = maxHealth;
-        healthBarStat.text = maxHealth.ToString();
+        slider.value = currentHealth;
     }
 
     void Update ()
@@ -24,7 +24,7 @@ public class CharacterStats : MonoBehaviour {
         {
             TakeDamage(damageRoll.BtnAction());
         }
-        healthBarStat.text = currentHealth.ToString();
+        
     }
     public void TakeDamage (int damage)
     {
