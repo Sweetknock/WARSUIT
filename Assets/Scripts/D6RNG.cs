@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 // D6 RNG Roll for combat. Needs to be attached to attack script and animation.
 public class D6RNG : MonoBehaviour
 {
     
-    public TextMesh largeText;
+    public TextMeshProUGUI damageText;
 
     public int BtnAction()
     {
@@ -15,9 +16,8 @@ public class D6RNG : MonoBehaviour
 
     private int PickRandomNumber(int maxInt) {
         int randomNum = Random.Range(1, maxInt+1);
-        Debug.Log(randomNum.ToString());
-        largeText.text = randomNum.ToString();
+        damageText.text = randomNum.ToString();
+        Debug.Log($"{damageText.text} is the random number.");
         return randomNum;
     }
-
 }

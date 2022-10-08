@@ -11,26 +11,26 @@ public class CharacterAnimator : MonoBehaviour
 
     private void Awake()
     {
-        animator  = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         damage = GetComponent<D6RNG>();
     }
 
     public void StartMoving()
-    { 
+    {
         move = true;
         animator.SetBool("Move", move);
     }
 
     public void StopMoving()
-    { 
+    {
         move = false;
         animator.SetBool("Move", move);
     }
 
     public void Attack()
-    { 
+    {
         attack = true;
-        
+
         animator.SetBool("Attack", attack);
     }
 
@@ -38,8 +38,8 @@ public class CharacterAnimator : MonoBehaviour
     {
         animator.SetBool("Move", move);
 
-        
-            animator.SetBool("Attack", attack);
+
+        animator.SetBool("Attack", attack);
         if (attack == true)
             damage.BtnAction();
     }
@@ -48,8 +48,8 @@ public class CharacterAnimator : MonoBehaviour
     {
         if (attack == true)
         {
-        attack = false;
-        animator.SetBool("Attack", attack);
+            attack = false;
+            animator.SetBool("Attack", attack);
         }
     }
 }

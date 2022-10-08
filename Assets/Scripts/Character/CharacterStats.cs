@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class CharacterStats : MonoBehaviour {
@@ -7,11 +8,14 @@ public class CharacterStats : MonoBehaviour {
     public Stat damage;
     public Stat health;
 
+    public TextMeshProUGUI healthBarStat;
+
     public D6RNG damageRoll;
     
     void Awake ()
     {
         currentHealth = maxHealth;
+        healthBarStat.text = maxHealth.ToString();
     }
 
     void Update ()
@@ -20,6 +24,7 @@ public class CharacterStats : MonoBehaviour {
         {
             TakeDamage(damageRoll.BtnAction());
         }
+        healthBarStat.text = currentHealth.ToString();
     }
     public void TakeDamage (int damage)
     {
