@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 // D6 RNG Roll for combat. Needs to be attached to attack script and animation.
 public class D6RNG : MonoBehaviour
 {
-    
+
     public TextMeshProUGUI damageText;
 
     public int BtnAction()

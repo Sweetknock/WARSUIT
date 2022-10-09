@@ -560,6 +560,8 @@ GameObject:
   - component: {fileID: 1264658666}
   - component: {fileID: 1264658667}
   - component: {fileID: 1264658668}
+  - component: {fileID: 1264658669}
+  - component: {fileID: 1264658670}
   m_Layer: 5
   m_Name: HealthBarUI
   m_TagString: Untagged
@@ -664,6 +666,38 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1264658669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1264658665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d7dc8ae29ff6e04faa52e302fe9d9b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageText: {fileID: 1749885827}
+--- !u!114 &1264658670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1264658665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8abaaf61f3cde848a648bf3dc66cacc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 6
+  damage:
+    baseValue: 0
+  health:
+    baseValue: 0
+  healthSlider: {fileID: 1264658668}
+  damageRoll: {fileID: 1264658669}
 --- !u!1 &1499404186
 GameObject:
   m_ObjectHideFlags: 0
@@ -760,6 +794,7 @@ GameObject:
   - component: {fileID: 1749885828}
   - component: {fileID: 1749885827}
   - component: {fileID: 1749885829}
+  - component: {fileID: 1749885830}
   m_Layer: 5
   m_Name: DamageTaken
   m_TagString: Untagged
@@ -784,7 +819,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -247, y: 187}
+  m_AnchoredPosition: {x: -273.1, y: 196.9}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1749885827
@@ -807,10 +842,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -841,8 +876,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 4
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -897,6 +932,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageText: {fileID: 1749885827}
+--- !u!114 &1749885830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1749885825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 5, y: -5}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1756317715 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2936510106226780264, guid: e9502c7c2ff736f4bbdf04022159d38f, type: 3}
@@ -1076,7 +1126,7 @@ MonoBehaviour:
     baseValue: 0
   health:
     baseValue: 0
-  slider: {fileID: 1264658668}
+  healthSlider: {fileID: 0}
   damageRoll: {fileID: 1749885829}
 --- !u!1 &1882437333
 GameObject:

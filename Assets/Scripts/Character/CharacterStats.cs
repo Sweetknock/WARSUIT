@@ -8,24 +8,26 @@ public class CharacterStats : MonoBehaviour {
     public Stat damage;
     public Stat health;
 
-    public Slider slider;
+    public Slider healthSlider;
 
     public D6RNG damageRoll;
     
     void Awake ()
     {
         currentHealth = maxHealth;
-        slider.value = currentHealth;
+        healthSlider.value = currentHealth;
+        healthSlider = GetComponent<Slider>();
     }
-
-    void Update ()
+    void ShowHealthBar()
     {
-        if (Input.GetKeyDown(KeyCode.T)) 
-        {
-            TakeDamage(damageRoll.BtnAction());
-        }
-        
+        healthSlider.value=1;
     }
+   
+    void Update()
+    {
+        ShowHealthBar();
+    }
+    
     public void TakeDamage (int damage)
     {
         damage = Mathf.Clamp(damage, 0, int.MaxValue);
@@ -37,7 +39,14 @@ public class CharacterStats : MonoBehaviour {
                 Die();
             }
     }
-
+   void OnGUI() 
+    {
+        if (GUI.Button(new Rect(100, 100, 75, 30), "Damage"))
+        {
+            TakeDamage(damageRoll.BtnAction());
+        }
+    }
+  
     public virtual void Die () 
     {
         // Takes lethal damage
