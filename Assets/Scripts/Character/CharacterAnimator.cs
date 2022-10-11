@@ -40,8 +40,8 @@ public class CharacterAnimator : MonoBehaviour
 
 
         animator.SetBool("Attack", attack);
-        if (attack == true)
-            damage.BtnAction();
+        //if (attack == true)
+            //damage.BtnAction();
     }
 
     private void LateUpdate()

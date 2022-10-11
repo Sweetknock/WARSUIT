@@ -12,13 +12,14 @@ public class D6RNG : MonoBehaviour
 
     public int BtnAction()
     {
+        Debug.Log("");
         return PickRandomNumber(6);
     }
 
     private int PickRandomNumber(int maxInt) {
         int randomNum = Random.Range(1, maxInt+1);
         damageText.text = randomNum.ToString();
-        Debug.Log($"{damageText.text} is the random number.");
+        Debug.Log("Damage");
         return randomNum;
     }
 }

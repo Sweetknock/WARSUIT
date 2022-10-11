@@ -19,7 +19,7 @@ public class GridControl : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown("m"))
         {
             Debug.Log("GridControl Update");
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -28,9 +28,6 @@ public class GridControl : MonoBehaviour
             if (Physics.Raycast(ray, out hit, float.MaxValue, terrainLayermask))
             {
                 Vector2Int gridPosition = targetGrid.GetGridPosition(hit.point);
-                Debug.Log(currentPosition);
-                Debug.Log(gridPosition);
-                Debug.Log(pathfinding);
                 path = pathfinding.FindPath(currentPosition.x, currentPosition.y, gridPosition.x, gridPosition.y);
                 currentPosition = gridPosition;
 

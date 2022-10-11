@@ -13,14 +13,18 @@ public class CharacterStats : MonoBehaviour {
     public D6RNG damageRoll;
     
     void Awake ()
-    {
+    {   
         currentHealth = maxHealth;
+        currentHealth = maxHealth;
+        Debug.Log(healthSlider);
+        Debug.Log(currentHealth);
         healthSlider.value = currentHealth;
         healthSlider = GetComponent<Slider>();
     }
-    void ShowHealthBar()
+    public void ShowHealthBar()
     {
-        healthSlider.value=1;
+        healthSlider = GameObject.Find("HealthBarUI").GetComponent<Slider>();
+        healthSlider.value=currentHealth;
     }
    
     void Update()

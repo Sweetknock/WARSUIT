@@ -4,8 +4,16 @@ using UnityEngine;
 
 public class GridObject : MonoBehaviour
 {
-    public Grid targetGrid;
+    private Grid _targetGrid;
+    public Grid targetGrid
+    {
+        get { return _targetGrid; }
+        set { _targetGrid= GameObject.Find("Grid").GetComponent<Grid>();}
+    }
+
     public Vector2Int positionOnGrid;
+
+
 
     private void Awake()
     {
@@ -14,6 +22,7 @@ public class GridObject : MonoBehaviour
 
     private void Init()
     {
+        targetGrid = GameObject.Find("Grid").GetComponent<Grid>();
         Debug.Log("Start Grid Object_Init");
         Debug.Log(targetGrid);
         positionOnGrid = targetGrid.GetGridPosition(transform.position);

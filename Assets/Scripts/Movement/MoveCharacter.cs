@@ -6,8 +6,7 @@ public class MoveCharacter : MonoBehaviour
 {
     [SerializeField] Grid targetGrid;
     [SerializeField] LayerMask terrainLayermask;
-    [SerializeField] GridObject targetCharacter;
-
+    GridObject targetCharacter;
     PathFinding pathfinding;
     List<PathNode> path;
     private void Start()
@@ -17,7 +16,8 @@ public class MoveCharacter : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        targetCharacter = GameObject.Find("Erza(Clone)").GetComponent<GridObject>();
+        if (Input.GetKeyDown("m"))
         {
 
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -26,7 +26,8 @@ public class MoveCharacter : MonoBehaviour
             if (Physics.Raycast(ray, out hit, float.MaxValue, terrainLayermask))
             {
                 Vector2Int gridPosition = targetGrid.GetGridPosition(hit.point);
-
+                Debug.Log("Moev Update");
+                Debug.Log(targetCharacter);
                 path = pathfinding.FindPath(targetCharacter.positionOnGrid.x, targetCharacter.positionOnGrid.y, gridPosition.x, gridPosition.y);
 
                 if (path is null) { return; }

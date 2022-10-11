@@ -279,7 +279,7 @@ GameObject:
   m_Component:
   - component: {fileID: 232912193537068184}
   - component: {fileID: 3419744045731356419}
-  - component: {fileID: 3419744045488971366}
+  - component: {fileID: 121465347144703287}
   m_Layer: 0
   m_Name: Erza
   m_TagString: Untagged
@@ -325,7 +325,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3419744045488971366
+--- !u!114 &121465347144703287
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -334,10 +334,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 608171541490964002}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61106f9786a21fd459a028ec881096f5, type: 3}
+  m_Script: {fileID: 11500000, guid: f4888d184baf3b041ac5646f4049a010, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move: 1
+  move: 0
   attack: 0
 --- !u!1 &639538120822628890
 GameObject:

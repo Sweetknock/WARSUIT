@@ -53,6 +53,7 @@ public class PathFinding : MonoBehaviour
     public List<PathNode> FindPath(int startX, int startY, int endX, int endY)
     {
         Debug.Log("Start Findpath");
+        Debug.Log(pathNodes);
         PathNode startNode = pathNodes[startX, startY];
         PathNode endNode = pathNodes[endX, endY];
 
@@ -130,7 +131,7 @@ public class PathFinding : MonoBehaviour
 
         if (distX > distY) { return 14 * distY + 10 * (distX - distY); }
 
-        Debug.Log($"Return Calculated Distance: {14 * distY + 10 * (distX - distY)}");
+        //Debug.Log($"Return Calculated Distance: {14 * distY + 10 * (distX - distY)}");
         return 14 * distY + 10 * (distX - distY);
     }
 
