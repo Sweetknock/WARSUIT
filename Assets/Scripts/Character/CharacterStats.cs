@@ -31,11 +31,16 @@ public class CharacterStats : MonoBehaviour {
     {
         ShowHealthBar();
     }
-    
-    public void TakeDamage (int damage)
+
+    public void TakeDamage(int damage)
     {
         damage = Mathf.Clamp(damage, 0, int.MaxValue);
-        currentHealth -= damage;
+
+        if (damage > 3 && damage < 6)
+            currentHealth -= 1;
+        
+        if (damage == 6)
+            currentHealth -= 2;
         Debug.Log(transform.name + " takes " + damage + " damage.");
 
             if (currentHealth <= 0)

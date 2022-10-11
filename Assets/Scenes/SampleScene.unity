@@ -428,6 +428,10 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 3803333767830614048, guid: 7642a4649d1dd754cbbb3d7e80149aab, type: 3}
+      propertyPath: damageRoll
+      value: 
+      objectReference: {fileID: 1707321234}
     - target: {fileID: 3803333767830614050, guid: 7642a4649d1dd754cbbb3d7e80149aab, type: 3}
       propertyPath: m_Value
       value: 100
@@ -630,6 +634,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1707321234 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3803333767312358219, guid: 7642a4649d1dd754cbbb3d7e80149aab, type: 3}
+  m_PrefabInstance: {fileID: 1258066482}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d7dc8ae29ff6e04faa52e302fe9d9b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1838200887
 GameObject:
   m_ObjectHideFlags: 0
