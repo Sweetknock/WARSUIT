@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class D6RNG : MonoBehaviour
 {
 
-    public TextMeshProUGUI damageText;
+    [SerializeField] TextMeshProUGUI damageText;
 
     public int BtnAction()
     {
@@ -19,6 +19,7 @@ public class D6RNG : MonoBehaviour
     private int PickRandomNumber(int maxInt) {
         int randomNum = Random.Range(1, maxInt+1);
         damageText.text = randomNum.ToString();
+        Debug.Log(randomNum.ToString());
         Debug.Log("Damage");
         return randomNum;
     }

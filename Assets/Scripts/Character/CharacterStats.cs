@@ -4,35 +4,52 @@ using UnityEngine;
 public class CharacterStats : MonoBehaviour {
   
     public int maxHealth = 6;
-    public int currentHealth { get; private set; }
-    public Stat damage;
-    public Stat health;
-
-    public Slider healthSlider;
-
-    public D6RNG damageRoll;
-    
-    void Awake ()
-    {   
-        currentHealth = maxHealth;
-        currentHealth = maxHealth;
-        Debug.Log(healthSlider);
-        Debug.Log(currentHealth);
-        healthSlider.value = currentHealth;
-        healthSlider = GetComponent<Slider>();
-    }
-    public void ShowHealthBar()
+    private int currentHealth { get; set; }
+    [SerializeField] GameObject canvas_pf;
+    private Slider healthSlider;
+    private D6RNG damageRoll;
+    void Start ()
     {
-        healthSlider = GameObject.Find("HealthBarUI").GetComponent<Slider>();
-        healthSlider.value=currentHealth;
+        //instatiate canavs object in the scene 
+        GameObject canvas = Instantiate(canvas_pf, new Vector3(0, 0, 0), Quaternion.identity);
+        Debug.Log(canvas);
+        //Set camera as main camera already on the scene.
+        Camera camera = Camera.main;
+        canvas.GetComponent<Canvas>().worldCamera = camera;
+
+        //get components of canvas so that we can update them.
+        healthSlider = canvas.GetComponentInChildren<Slider>();
+        damageRoll = canvas.GetComponentInChildren<D6RNG>();
+
+        //set current health of slider to max.
+        currentHealth = maxHealth;
+        healthSlider.value = 50;
+
     }
    
+    //Update health bar with value stored in currentHealth which is modified by TakeDamage()
     void Update()
     {
         ShowHealthBar();
     }
 
-    public void TakeDamage(int damage)
+    private void ShowHealthBar()
+    {
+        healthSlider.value = currentHealth;
+    }
+
+    //Continuously runs function while scene is active checking for button pushes.
+    void OnGUI()
+    {
+        if (GUI.Button(new Rect(10, 10, 175, 130), "Damage"))
+        {
+            TakeDamage(damageRoll.BtnAction());
+        }
+    }
+
+    //Take damage value from D6RNG roll, modify it, and substracto from character's
+    //current helath.
+    private void TakeDamage(int damage)
     {
         damage = Mathf.Clamp(damage, 0, int.MaxValue);
 
@@ -40,26 +57,19 @@ public class CharacterStats : MonoBehaviour {
             currentHealth -= 1;
         
         if (damage == 6)
-            currentHealth -= 2;
+            currentHealth -= 6;
         Debug.Log(transform.name + " takes " + damage + " damage.");
-
-            if (currentHealth <= 0)
+        print(currentHealth + " HP left.");
+        if (currentHealth <= 0)
             {
                 Die();
             }
     }
-   void OnGUI() 
-    {
-        if (GUI.Button(new Rect(100, 100, 75, 30), "Damage"))
-        {
-            TakeDamage(damageRoll.BtnAction());
-        }
-    }
-  
+
+    // Takes lethal damage, i.e. current health is less than 0.
+    // Will be overwritten with game over screen or ragdoll etc
     public virtual void Die () 
     {
-        // Takes lethal damage
-        // Will be overwritten with game over screen or ragdoll etc
         Debug.Log(transform.name + " died.");
     }
 }

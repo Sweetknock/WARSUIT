@@ -6,6 +6,7 @@ public class MoveCharacter : MonoBehaviour
 {
     [SerializeField] Grid targetGrid;
     [SerializeField] LayerMask terrainLayermask;
+    
     GridObject targetCharacter;
     PathFinding pathfinding;
     List<PathNode> path;
@@ -16,7 +17,8 @@ public class MoveCharacter : MonoBehaviour
 
     private void Update()
     {
-        targetCharacter = GameObject.Find("Erza(Clone)").GetComponent<GridObject>();
+        GameObject _targetCharactermp = GameObject.FindWithTag("Player");
+        targetCharacter = _targetCharactermp.GetComponent<GridObject>();
         if (Input.GetKeyDown("m"))
         {
 

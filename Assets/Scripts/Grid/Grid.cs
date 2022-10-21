@@ -132,7 +132,6 @@ public class Grid : MonoBehaviour
 			{ 
 			grid[positionOnGrid.x, positionOnGrid.y].gridObject1 = gridObject;
 			Debug.Log(gridObject.GetComponent<Character>().characterName + " placed successfully!");
-			Debug.Log(positionOnGrid);
 		}
 		else
 			Debug.Log(gridObject.GetComponent<Character>().characterName + " is out of bounds!");
@@ -141,7 +140,6 @@ public class Grid : MonoBehaviour
 
     public bool CheckBoundery(Vector2Int positionOnGrid)
 	{
-		Debug.Log(positionOnGrid);
 		if (positionOnGrid.x<0 || positionOnGrid.x>=length)
 			return false;
 		if (positionOnGrid.y < 0 || positionOnGrid.y >= width)

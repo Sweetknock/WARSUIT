@@ -1,27 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class RNGSpawnPoints : MonoBehaviour {
 
     public GameObject[] spawnLocations;
-    public GameObject Character;
+    [SerializeField] GameObject Character;
     public Grid grid;
     public Vector3 respawnLocation;
 
     void Awake()
     {
         spawnLocations = GameObject.FindGameObjectsWithTag("SpawnPoint");
+
     }
 
     void Start () {
-        Character = (GameObject)Resources.Load("Erza" , typeof(GameObject));
-
         Debug.Log("RNGSPAWNPOINTS");
         Debug.Log(Character);
         Debug.Log(respawnLocation);
         respawnLocation = Character.transform.position;
-        
+
         SpawnCharacter();
     }
 

@@ -12,9 +12,7 @@ public class GridControl : MonoBehaviour
     List<PathNode> path;
     private void Start()
     {
-        Debug.Log("pathfinding");
         pathfinding = targetGrid.GetComponent<PathFinding>();
-        Debug.Log(pathfinding);
     }
 
     private void Update()

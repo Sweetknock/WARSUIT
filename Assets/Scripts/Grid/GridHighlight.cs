@@ -37,8 +37,6 @@ public class GridHighlight : MonoBehaviour
 
     public void Highlight(List<Vector2Int> positions)
     {
-
-        Debug.Log(positions.Count);
         for (int i = 0; i < positions.Count; i++)
         {
             Highlight(positions[i].x, positions[i].y, GetMovePointGO(i));
@@ -47,11 +45,8 @@ public class GridHighlight : MonoBehaviour
 
     public void Highlight(int posX, int posY, GameObject highlightObject)
     {
-        Debug.Log("highligh");
         Vector3 postion = grid.GetWorldPosition(posX, posY, true);
-        Debug.Log(postion);
         postion += Vector3.up * 0.2f;
-        Debug.Log(postion);
         highlightObject.transform.position = postion;    
     }
 
